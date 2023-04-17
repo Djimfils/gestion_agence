@@ -23,8 +23,9 @@ class CreateMecaniciensTable extends Migration
             $table->string('telephone');
             $table->string('domaine');
             $table->dateTime('dateEmbauche');
-            $table->foreignId('salaire_id');
-            $table->foreignId('prime_id');
+            $table->foreignId('salaire_id')->constrained();
+            $table->foreignId('prime_id')->constrained();
+            $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
 

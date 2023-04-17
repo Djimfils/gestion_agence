@@ -14,8 +14,8 @@ class CreateVehiculesMaintenancesTable extends Migration
     public function up()
     {
         Schema::create('vehicules_maintenances', function (Blueprint $table) {
-            $table->foreignId("vehicule_id");
-            $table->foreignId("maintenance_id");
+            $table->foreignId("vehicule_id")->constrained();
+            $table->foreignId("maintenance_id")->constrained();
         });
         Schema::enableForeignKeyConstraints();
 

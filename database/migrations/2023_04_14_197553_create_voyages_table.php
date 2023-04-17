@@ -19,8 +19,8 @@ class CreateVoyagesTable extends Migration
             $table->string('destination');
             $table->string('TC');
             $table->dateTime('dateDepart');
-            $table->foreignId('chauffeur_id');
-            $table->foreignId('vehicule_id');
+            $table->foreignId('chauffeur_id')->constrained();
+            $table->foreignId('vehicule_id')->constrained();
         });
         Schema::enableForeignKeyConstraints();
 

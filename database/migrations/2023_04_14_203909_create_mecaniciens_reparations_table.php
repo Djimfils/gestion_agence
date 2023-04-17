@@ -14,8 +14,8 @@ class CreateMecaniciensReparationsTable extends Migration
     public function up()
     {
         Schema::create('mecaniciens_reparations', function (Blueprint $table) {
-            $table->foreignId("mecanicien_id");
-            $table->foreignId("reparation_id");
+            $table->foreignId("mecanicien_id")->constrained();
+            $table->foreignId("reparation_id")->constrained();
         });
         Schema::enableForeignKeyConstraints();
 

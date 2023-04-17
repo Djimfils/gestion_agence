@@ -16,9 +16,9 @@ class CreateReparationsTable extends Migration
         Schema::create('reparations', function (Blueprint $table) {
             $table->id();
             $table->string('panne');
-            $table->string('cout');
+            $table->double('cout');
             $table->date('dateRepa');
-            $table->foreignId('vehicule_id');
+            $table->foreignId('vehicule_id')->constrained();
         });
         Schema::enableForeignKeyConstraints();
 

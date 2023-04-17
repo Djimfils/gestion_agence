@@ -16,7 +16,7 @@ class CreateMaintenancesTable extends Migration
         Schema::create('maintenances', function (Blueprint $table) {
             $table->id();
             $table->string('maintenancier');
-            $table->string('cout');
+            $table->double('cout');
             $table->date('dateMaintenance');
         });
     }

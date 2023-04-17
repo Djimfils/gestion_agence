@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateApprentisTable extends Migration
+class CreateChauffeursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateApprentisTable extends Migration
      */
     public function up()
     {
-        Schema::create('apprentis', function (Blueprint $table) {
+        Schema::create('chauffeurs', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
             $table->string('prenom');
@@ -22,8 +22,10 @@ class CreateApprentisTable extends Migration
             $table->string('adresse');
             $table->string('telephone');
             $table->dateTime('dateEmbauche');
-            $table->foreignId('salaire_id');
-            $table->foreignId('prime_id');
+            $table->foreignId('salaire_id')->constrained();
+            $table->foreignId('prime_id')->constrained();
+            $table->foreignId('vehicule_id')->constrained();
+            $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
 
@@ -36,10 +38,9 @@ class CreateApprentisTable extends Migration
      */
     public function down()
     {
-        Schema::table('apprentis', function(Blueprint $table){
-            $table->dropConstrainedForeignId("salaire_id");
-            $table->dropConstrainedForeignId("prime_id");
+        Schema::table('chauffeurs', function(Blueprint $table){
+            $table->dropForeignId(["salaire_id", "prime_id", "vehicule_id"]);
         });
-        Schema::dropIfExists('apprentis');
+        Schema::dropIfExists('chauffeurs');
     }
 }
