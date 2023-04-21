@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +21,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <span class="brand-text font-weight-bold" style="font-size: 1.3em;"><b>Ets Djimfils loction</b></span>
+      <span class="brand-text font-weight-bold" style="font-size: 1em;"><b>AGENCE ABOU SALAM</b></span>
     </a>
 
     <!-- Sidebar -->
@@ -74,7 +73,7 @@
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2021 Djimfils.</strong> All rights reserved.
+    <strong>Copyright &copy; 2023 Djimfils.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->

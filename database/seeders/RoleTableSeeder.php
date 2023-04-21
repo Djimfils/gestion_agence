@@ -18,7 +18,6 @@ class RoleTableSeeder extends Seeder
             ["intitule"=>"superadmin"],
             ["intitule"=>"admin"],
             ["intitule"=>"manager"],
-            ["intitule"=>"employe"]
         ]);
     }
 }

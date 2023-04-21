@@ -57,15 +57,15 @@ class User extends Authenticatable
     }
 
     public function hasRole($role){
-        return $this->roles()->where("nom", $role)->first() !== null;
+        return $this->roles()->where("intitule", $role)->first() !== null;
     }
 
     public function hasAnyRoles($roles){
-        return $this->roles()->whereIn("nom", $roles)->first() !== null;
+        return $this->roles()->whereIn("intitule", $roles)->first() !== null;
     }
 
     public function getAllRoleNamesAttribute(){
-        return $this->roles->implode("nom", ' | ');
+        return $this->roles->implode("intitule", ' | ');
     }
 
 

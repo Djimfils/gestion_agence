@@ -1,7 +1,9 @@
 <?php
+use App\Http\Controllers\UserController;
 use App\Models\Vehicule;
 use App\Models\Chauffeur;
 use App\Models\Voyage;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +17,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
 
-Route::get('/vehicules', function () {
-    return Vehicule::with("Chauffeurs")->paginate(5);
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Le groupe des routes relatives aux administrateurs uniquement
+Route::group([
+    "middleware" => ["auth", "auth.admin"],
+    'as' => 'admin.'
+], function(){
 
-Route::get('/chauffeurs', function () {
-    return Vehicule::with("Vehicules")->paginate(5);
+    Route::group([
+        "prefix" => "habilitations",
+        'as' => 'habilitations.'
+    ], function(){
+
+        Route::get("/utilisateurs", Utilisateurs::class)->name("users.index");
+    });
+
 });
